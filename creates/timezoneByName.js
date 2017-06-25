@@ -1,5 +1,5 @@
 'use strict';
-const google = require('../lib/google'),
+const //google = require('../lib/google'),
   common = require('../lib/commonTimeZoneData');
 
 // We recommend writing your creates separate like this and rolling them
@@ -39,7 +39,7 @@ module.exports = {
     }],
 
     perform: (z, bundle) => {
-      return google.getTimeZoneByName(z, bundle.inputData.zoneName);
+      //return google.getTimeZoneByName(z, bundle.inputData.zoneName);
     },
 
     // In cases where Zapier needs to show an example record to the user, but we are unable to get a live example

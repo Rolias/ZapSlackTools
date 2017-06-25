@@ -1,9 +1,9 @@
 {
-  "name": "zapier-platform-example-app-create",
-  "version": "1.0.2",
-  "description": "A bit of Javascript to help with timezones",
-  "repository": "github.com/Rolias/timezone-zap-app",
-  "homepage": "https://zapier.com/",
+  "name": "tod-slack-helper",
+  "version": "1.0.0",
+  "description": "A bit of Javascript to help with easing the pain of some multisteps zaps",
+  "repository": "github.com/Rolias/slack-zap-app",
+  "homepage": "https://pluralsight.com/",
   "author": "Tod Gentille <tod-gentille@pluralsight.com>",
   "license": "BSD-3-Clause",
   "main": "index.js",
@@ -11,12 +11,16 @@
     "test": "node node_modules/mocha/bin/mocha --recursive"
   },
   "engines": {
-    "node": ">=4.3.0",
+    "node": ">=6.10.2",
     "npm": ">=2.0.0"
   },
   "dependencies": {
+    "chai": "4.0.2",
     "eslint": "4.0.0",
     "jshint": "2.9.4",
+    "mocha": "3.2.0",
+    "should": "11.2.1",
+    "slack-node": "0.1.8",
     "zapier-platform-core": "1.0.11"
   },
   "devDependencies": {
