@@ -1,5 +1,7 @@
 # An Slack Helper App for use inside Zapier
 
+At the moment nothing here is working. I just copied an existing project to have a way to play around with the slack API. I haven't started on the Zapier portion yet. 
+
 ## Using This project in Zapier
 
 If you want to use this Zap as is, just ask me and I can share it with you via Zapier's invite system (requires your email). Currently my Google API key is in the deployed App but it's not in this repo. If you want to to clone and reuse this repo for your version of a timezone app, you'll want to add a folder name `_local` at the root of the node project. Then create a file `slack-api-credentials.js`. That file will contain something like this where you subsitute your actual API key in the obvious place.
