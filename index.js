@@ -1,5 +1,5 @@
-const timezone = require('./creates/timezone');
-const timezoneByName = require ('./creates/timezoneByName');
+const slackStatusCal = require('./creates/slackStatusCalendar');
+
 
 // Now we can roll up all our behaviors in an App.
 const App = {
@@ -8,27 +8,23 @@ const App = {
   version: require('./package.json').version,
   platformVersion: require('zapier-platform-core').version,
 
-  beforeRequest: [
-  ],
+  beforeRequest: [],
 
-  afterResponse: [
-  ],
+  afterResponse: [],
 
-  resources: {
-  },
+  resources: {},
 
   // If you want your trigger to show up, you better include it here!
-  triggers: {
-  },
+  triggers: {},
 
   // If you want your searches to show up, you better include it here!
-  searches: {
-  },
+  searches: {},
 
   // If you want your creates to show up, you better include it here!
   creates: {
-    [timezone.key]: timezone,
-    [timezoneByName.key]: timezoneByName,
+    [slackStatusCal.key]: slackStatusCal,
+
+
   }
 };
 
