@@ -1,4 +1,4 @@
-# An Slack Helper App for use inside Zapier
+# A Slack Helper App for use inside Zapier
 
 At the moment nothing here is working. I just copied an existing project to have a way to play around with the slack API. I haven't started on the Zapier portion yet. 
 

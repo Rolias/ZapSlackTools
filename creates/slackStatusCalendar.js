@@ -25,19 +25,19 @@ module.exports = {
 
       {
         key: 'workStatus',
-        required: true,
+        required: false,
         type: 'string',
-        helpText: 'The normal "At Work" status message set after the calendar event ends'
+        helpText: 'The normal "At Work" status message set at start of day  or after the calendar event ends'
       },
       {
         key: 'workEmoji',
-        required: true,
+        required: false,
         type: 'string',
         helpText: 'the normal at work emoji to use'
       },
       {
         key: 'notAtWorkEmoji',
-        required: true,
+        required: false,
         type: 'string',
         helpText: 'The emoji to display when you are not at work.'
       },
@@ -47,6 +47,12 @@ module.exports = {
         type: 'datetime',
         helpText: 'The time the calendar event ends (do not use the Pretty value)'
       },
+      {
+        key: 'eventBeginTime',
+        required: false,
+        type: 'datetime',
+        helpText: 'The time the calendar event starts (do not use the Pretty value)'
+      },
 
       {
         key: 'endOfDayStatus',
@@ -55,12 +61,23 @@ module.exports = {
         helpText: 'When the meeting ends and your day is over this status text will be used instead of your at work status'
       },
       {
+        key: 'weekendStatus',
+        required: false,
+        type: 'string',
+        helpText: 'If it is a weekend the status message to display'
+      },
+      {
         key: 'calendarEmoji',
         required: false,
         type: 'string',
         helpText: 'The emoji to use during a calendar event (defaults to :calendar:)'
       },
-
+      {
+        key: 'startingTime',
+        required: false,
+        type: 'integer',
+        helpText: 'What hour of the day (in 24 hour format) does your day start (e.g. 8am = 8)'
+      },
       {
         key: 'quittingTime',
         required: false,
