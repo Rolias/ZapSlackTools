@@ -73,13 +73,13 @@ module.exports = {
         helpText: 'The emoji to use during a calendar event (defaults to :calendar:)'
       },
       {
-        key: 'startingTime',
+        key: 'startingHour',
         required: false,
         type: 'integer',
         helpText: 'What hour of the day (in 24 hour format) does your day start (e.g. 8am = 8)'
       },
       {
-        key: 'quittingTime',
+        key: 'quittingHour',
         required: false,
         type: 'integer',
         helpText: 'What hour of the day (in 24 hour format) does your day end (e.g. 5pm = 17)'

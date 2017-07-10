@@ -13,7 +13,7 @@ var bundle,
 
 var slackWebClient = require('@slack/client').WebClient;
 
-describe('creates', () => {
+describe('slackStatusCalendar', () => {
 
   beforeEach(() => {
     bundle = {
@@ -25,7 +25,7 @@ describe('creates', () => {
         endOfDayStatus: "Not working",
         calendarEmoji: ":calendar:",
         eventBeginTime: {},
-        quittingTime: 17
+        quittingHour: 17
       }
     };
     profile = {
@@ -35,7 +35,7 @@ describe('creates', () => {
   });
 
 
-  describe('make various calls to the slackStatusCalendar create', () => {
+  describe('slack.js', () => {
     beforeEach(() => {
 
     });
@@ -81,29 +81,37 @@ describe('creates', () => {
     it('should reflect weekend status when eventEnds on weekend', () => {
       bundle.inputData.eventEndTime = new Date('July 9, 2017 12:00:00');
       let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
-      statusObject.statusText.should.equal(mySlack._defaultWeekendStatus);
-      statusObject.statusEmoji.should.equal(mySlack._defaultNotAtWorkEmoji);
+      statusObject.statusText.should.equal(bundle.inputData.weekendStatus);
+      statusObject.statusEmoji.should.equal(bundle.inputData.notAtWorkEmoji);
       statusObject.continue.should.be.true;
     });
 
     it('should return workStatus/workEmoji if previously in calendar event', () => {
       profile.status_emoji = bundle.inputData.calendarEmoji;
       let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
-      console.log(statusObject);
       statusObject.statusText.should.equal(bundle.inputData.workStatus);
       statusObject.statusEmoji.should.equal(bundle.inputData.workEmoji);
       statusObject.continue.should.be.true;
     });
 
-    it('should return workStatus if start time was prior to start of work day', () => {
+    it('should return workStatus/Emoji if event start time was prior to start of work day', () => {
       bundle.inputData.eventBeginTime = new Date('July 10, 2017 8:00:00');
-      bundle.inputData.startingTime = 8;
+      bundle.inputData.startingHour = 8;
       let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
-      console.log(statusObject);
       statusObject.statusText.should.equal(bundle.inputData.workStatus);
+      statusObject.statusEmoji.should.equal(bundle.inputData.workEmoji);
       statusObject.continue.should.be.true;
     });
 
+
+    it('should return OffWork/Status if end time was after end of work day', () => {
+      bundle.inputData.eventEndTime = new Date('July 10, 2017 17:00:00');
+      bundle.inputData.quittingHour = 17;
+      let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
+      statusObject.statusText.should.equal(bundle.inputData.endOfDayStatus);
+      statusObject.statusEmoji.should.equal(bundle.inputData.notAtWorkEmoji);
+      statusObject.continue.should.be.true;
+    });
 
 
   });
