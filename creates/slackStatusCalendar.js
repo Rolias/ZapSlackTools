@@ -22,67 +22,73 @@ module.exports = {
         type: 'string',
         helpText: 'Valid email for user in Slack'
       },
+      {
+        key: 'ptoStatus',
+        required: false,
+        type: 'string',
+        helpText: 'Any string in your status that indicates you are on paid time off. Defaults to "PTO"'
+      },
 
       {
         key: 'workStatus',
         required: false,
         type: 'string',
-        helpText: 'The normal "At Work" status message set at start of day  or after the calendar event ends'
+        helpText: 'The normal at work status message set at start of day  or after the calendar event ends. Defaults to "At Work"'
       },
       {
         key: 'workEmoji',
         required: false,
         type: 'string',
-        helpText: 'the normal at work emoji to use'
+        helpText: 'the normal at work emoji to use, defaults to ":at-work:"'
       },
       {
         key: 'notAtWorkEmoji',
         required: false,
         type: 'string',
-        helpText: 'The emoji to display when you are not at work.'
+        helpText: 'The emoji to display when you are not at work. Defaults to ":ooo:'
       },
       {
         key: 'eventBeginTime',
         required: false,
         type: 'datetime',
-        helpText: 'The time the Google calendar event begins. Use the "Insert a Field" menu to select the EventBegins field, do NOT use the EventBegins(Pretty) value'
+        helpText: 'The time the Google calendar event begins. Use the "Insert a Field" menu to select the EventBegins field, do NOT use the EventBegins(Pretty) value (no default)'
       },
       {
         key: 'eventEndTime',
         required: false,
         type: 'datetime',
-        helpText: 'The time the Google calendar event ends. Use the "Insert a Field" menu to select the EventEnds field, do NOT use the EventEnds(Pretty) value'
+        helpText: 'The time the Google calendar event ends. Use the "Insert a Field" menu to select the EventEnds field, do NOT use the EventEnds(Pretty) value (no default)'
       },
 
       {
         key: 'workdayOverStatus',
         required: false,
         type: 'string',
-        helpText: 'When the meeting ends and your day is over this status text will be used instead of your at work status'
+        helpText: 'When the meeting ends and your day is over this status text will be used instead of your at work status. Defaults to "My workday is over'
       },
       {
         key: 'weekendStatus',
         required: false,
         type: 'string',
-        helpText: 'If it is a weekend the status message to display'
+        helpText: 'If it is a weekend the status message to display. Defauls to "It is the Weekend!"'
       },
       {
         key: 'calendarEmoji',
         required: false,
         type: 'string',
-        helpText: 'The emoji to use during a calendar event (defaults to :calendar:)'
+        helpText: 'The emoji to use during a calendar event. Defaults to :calendar:'
       },
       {
         key: 'startingTime',
         required: false,
-        type: 'integer',
-        helpText: 'What time does your day start? Use 24 hour time. E.g. 8 am = 08:00'
+        type: 'string',
+        helpText: 'What time does your day start? Use 24 hour time. E.g. 7 am = 07:00 (no default)'
       },
       {
         key: 'quittingTime',
         required: false,
-        type: 'integer',
-        helpText: 'What time does your day end? Use 24 hour time. E.g. 5 pm = 17:00'
+        type: 'string',
+        helpText: 'What time does your day end? Use 24 hour time. E.g. 5 pm = 17:00 (no default)'
       }
 
     ],

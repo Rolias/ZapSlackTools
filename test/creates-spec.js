@@ -48,6 +48,7 @@ describe('slackStatusCalendar', () => {
       this.slackWebClient = {};
 
       console.log("running the test");
+      bundle.inputData.eventEndTime = '2017-07-10T17:00:00-07:00';
       //NOTE we don't have to pass in done in the  it function() param and then
       // call done() when the test finishes. Just by returning the promise mocha 
       //will know we're done
@@ -57,7 +58,6 @@ describe('slackStatusCalendar', () => {
           console.log(result);
           result.should.have.property('continue');
           console.log("DID IT!!!!");
-          //done();
         })
         .catch();
     });
@@ -131,9 +131,6 @@ describe('slackStatusCalendar', () => {
       statusObject.continue.should.be.true;
     });
 
-
   });
-
-
 
 });
