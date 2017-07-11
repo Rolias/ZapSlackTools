@@ -96,7 +96,7 @@ describe('slackStatusCalendar', () => {
       statusObject.continue.should.be.true;
     });
 
-    it.only('should return workStatus/Emoji when event start time is prior to start of work day', () => {
+    it('should return workStatus/Emoji when event start time is prior to start of work day', () => {
       bundle.inputData.eventBeginTime = '2017-07-10T08:00:00-07:00';
       let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
       statusObject.statusText.should.equal(bundle.inputData.workStatus);
@@ -105,18 +105,30 @@ describe('slackStatusCalendar', () => {
     });
 
 
-    it.only('should return OffWork/Status when end time is after end of work day', () => {
+    it('should return OffWork/Status when end time is after end of work day', () => {
       bundle.inputData.eventEndTime = '2017-07-10T17:00:00-07:00';
-      bundle.inputData.quittingHour = 17;
       let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
       statusObject.statusText.should.equal(bundle.inputData.workdayOverStatus);
       statusObject.statusEmoji.should.equal(bundle.inputData.notAtWorkEmoji);
       statusObject.continue.should.be.true;
     });
 
-    it('should calculate time of day stuff', () => {
+    it('should use default status when prior to start of day but startingTime undefined', () => {
+      bundle.inputData.eventBeginTime = '2017-07-10T08:00:00-07:00';
+      bundle.inputData.startingTime = undefined;
+      let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
+      statusObject.statusText.should.equal(profile.status_text);
+      statusObject.statusEmoji.should.equal(profile.status_emoji);
+      statusObject.continue.should.be.true;
+    });
+
+    it('should return default status when end time is after end of work day but quitting time not defined', () => {
       bundle.inputData.eventEndTime = '2017-07-10T17:00:00-07:00';
-      mySlack._setupStartAndQuitTime(bundle.inputData);
+      bundle.inputData.quittingTime = undefined;
+      let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
+      statusObject.statusText.should.equal(profile.status_text);
+      statusObject.statusEmoji.should.equal(profile.status_emoji);
+      statusObject.continue.should.be.true;
     });
 
 
