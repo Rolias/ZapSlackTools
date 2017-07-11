@@ -42,20 +42,20 @@ module.exports = {
         helpText: 'The emoji to display when you are not at work.'
       },
       {
-        key: 'eventEndTime',
-        required: false,
-        type: 'datetime',
-        helpText: 'The time the calendar event ends (do not use the Pretty value)'
-      },
-      {
         key: 'eventBeginTime',
         required: false,
         type: 'datetime',
-        helpText: 'The time the calendar event starts (do not use the Pretty value)'
+        helpText: 'The time the Google calendar event begins. Use the "Insert a Field" menu to select the EventBegins field, do NOT use the EventBegins(Pretty) value'
+      },
+      {
+        key: 'eventEndTime',
+        required: false,
+        type: 'datetime',
+        helpText: 'The time the Google calendar event ends. Use the "Insert a Field" menu to select the EventEnds field, do NOT use the EventEnds(Pretty) value'
       },
 
       {
-        key: 'endOfDayStatus',
+        key: 'workdayOverStatus',
         required: false,
         type: 'string',
         helpText: 'When the meeting ends and your day is over this status text will be used instead of your at work status'
@@ -73,16 +73,16 @@ module.exports = {
         helpText: 'The emoji to use during a calendar event (defaults to :calendar:)'
       },
       {
-        key: 'startingHour',
+        key: 'startingTime',
         required: false,
         type: 'integer',
-        helpText: 'What hour of the day (in 24 hour format) does your day start (e.g. 8am = 8)'
+        helpText: 'What time does your day start? Use 24 hour time. E.g. 8 am = 08:00'
       },
       {
-        key: 'quittingHour',
+        key: 'quittingTime',
         required: false,
         type: 'integer',
-        helpText: 'What hour of the day (in 24 hour format) does your day end (e.g. 5pm = 17)'
+        helpText: 'What time does your day end? Use 24 hour time. E.g. 5 pm = 17:00'
       }
 
     ],
