@@ -89,12 +89,18 @@ module.exports = {
         required: false,
         type: 'string',
         helpText: 'What time does your day end? Use 24 hour time. E.g. 5 pm = 17:00 (no default)'
+      },
+      {
+        key: 'eventDescription',
+        required: false,
+        type: 'string',
+        helpText: 'Can be used for advanced control features. E.g. status:off in description keeps the event from updating your status. Put commands in your calendar description field.'
       }
 
     ],
 
     perform: (z, bundle) => {
-      return slackStatus.getStatusObject(z, bundle);
+      return slackStatus.getCalendarStatusObject(z, bundle);
       //return google.getTimeZoneByLatLon(z, bundle.inputData.latitude, bundle.inputData.longitude);
     },
 

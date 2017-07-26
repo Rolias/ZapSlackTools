@@ -41,7 +41,7 @@ describe('slackStatusCalendar', () => {
 
     });
 
-    let self = this;
+    //let self = this;
     it('should get a timezone object back', function () {
 
       this.timeout(5000);
@@ -76,6 +76,13 @@ describe('slackStatusCalendar', () => {
     it('should have continue as false when on PTO', () => {
       profile.statusText = "PTO";
       let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
+      statusObject.continue.should.be.false;
+    });
+
+    it('should have continue as false when description has status:off', () => {
+      bundle.inputData.eventDescription = "status:off and junk";
+      let statusObject = mySlack._createStatusObject(bundle.inputData, profile);
+
       statusObject.continue.should.be.false;
     });
 
